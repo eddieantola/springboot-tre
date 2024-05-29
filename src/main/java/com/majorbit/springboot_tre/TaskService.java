@@ -19,6 +19,9 @@ public class TaskService {
     } else {
         return "Ops, qualcosa è andato storto!";
     }
+  }
+  public Task readTask(int id) {
+    return dao.readTask(id);
 
   }
 
