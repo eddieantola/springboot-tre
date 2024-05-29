@@ -1,6 +1,6 @@
 package com.majorbit.springboot_tre.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Task {
 
@@ -45,11 +45,11 @@ public class Task {
     this.description = description;
   }
 
-  public java.util.Date getDueDate() {
+  public Date getDueDate() {
     return dueDate;
   }
 
-  public void setDueDate(java.util.Date dueDate) {
+  public void setDueDate(Date dueDate) {
     this.dueDate = dueDate;
   }
 
