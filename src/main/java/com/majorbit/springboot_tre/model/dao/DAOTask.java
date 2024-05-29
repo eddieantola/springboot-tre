@@ -50,6 +50,26 @@ public class DAOTask implements IDAOTask {
       }
     return t;
   }
+  public int updateTask(int id, Task t) {
+    Connection c = null;
+    PreparedStatement p = null;
+    int r=0;
+    try {
+      c = DB.getConnection();
+      p = c.prepareStatement("UPDATE Task SET title = ?, description = ?, dueDate = ?, completed = ? WHERE id = ?;"); 
+      p.setString(1, t.getTitle());
+      p.setString(2, t.getDescription());
+      p.setDate(3, t.getDueDate());
+      p.setBoolean(4, t.isCompleted());
+      p.setInt(5, id);
+      r=p.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        closeResources(c, p, null);
+      }
+    return r;
+  }
 
   private void closeResources(Connection c, PreparedStatement p, ResultSet rs) {
     try {

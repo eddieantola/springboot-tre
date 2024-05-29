@@ -15,14 +15,20 @@ public class TaskService {
   public String createTask(Task t) {
     int r = dao.createTask(t);
     if (r>0) {
-        return "Task creato con successo";
+      return "Task creato con successo";
     } else {
-        return "Ops, qualcosa è andato storto!";
+      return "Ops, qualcosa è andato storto!";
     }
   }
   public Task readTask(int id) {
     return dao.readTask(id);
-
   }
-
+  public String updateTask(int id, Task t) {
+    int r = dao.updateTask(id, t);
+    if (r>0) {
+      return "Task aggiornato con successo";
+    } else {
+      return "Ops, qualcosa è andato storto!";
+    }
+  }
 }
