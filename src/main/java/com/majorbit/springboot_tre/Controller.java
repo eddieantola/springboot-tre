@@ -23,8 +23,13 @@ public class Controller {
         return service.createTask(t);
     }
     @GetMapping("/{id}")
-    public Task readTask(@PathVariable int id) {
-        return service.readTask(id);
+    public Object readTask(@PathVariable int id) {
+        Task t = service.readTask(id);
+        if (t!=null) {
+            return t;
+        } else {
+            return "Task non esistente";
+        }
     }
     @PutMapping("/{id}")
     public String updateTask(@PathVariable int id, @RequestBody Task t) {
