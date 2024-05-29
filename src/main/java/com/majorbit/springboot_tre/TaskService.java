@@ -31,4 +31,12 @@ public class TaskService {
       return "Ops, qualcosa è andato storto!";
     }
   }
+  public String deleteTask(int id) {
+    int r = dao.deleteTask(id);
+    if (r>0) {
+      return "Task eliminato con successo";
+    } else {
+      return "Ops, qualcosa è andato storto!";
+    }
+  }
 }
