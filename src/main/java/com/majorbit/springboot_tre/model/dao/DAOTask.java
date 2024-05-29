@@ -80,4 +80,20 @@ public class DAOTask implements IDAOTask {
       e.printStackTrace();
     }
   }
+  public int deleteTask(int id) {
+    Connection c = null;
+    PreparedStatement p = null;
+    int r=0;
+    try {
+      c = DB.getConnection();
+      p = c.prepareStatement("DELETE FROM Task WHERE id = ?;");
+      p.setInt(1,id);
+      r=p.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        closeResources(c, p, null);
+      }
+    return r;
+  }
 }

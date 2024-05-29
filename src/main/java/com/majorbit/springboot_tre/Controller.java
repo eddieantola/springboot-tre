@@ -1,6 +1,7 @@
 package com.majorbit.springboot_tre;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,5 +29,9 @@ public class Controller {
     @PutMapping("/{id}")
     public String updateTask(@PathVariable int id, @RequestBody Task t) {
         return service.updateTask(id, t);
+    }
+    @DeleteMapping("/{id}")
+    public String deleteTask(@PathVariable int id) {
+        return service.deleteTask(id);
     }
 }
